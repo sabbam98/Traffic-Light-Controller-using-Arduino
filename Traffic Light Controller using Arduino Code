@@ -1,0 +1,33 @@
+int red = 2;
+int yellow = 3;
+int green = 4;
+
+void setup() {
+  pinMode(red, OUTPUT);
+  pinMode(yellow, OUTPUT);
+  pinMode(green, OUTPUT);
+  
+  Serial.begin(9600); // start serial monitor
+  Serial.println("Traffic Light Controll"); 
+}
+
+void loop() {
+  // Green ON
+  digitalWrite(green, HIGH);
+  digitalWrite(red, LOW);
+  digitalWrite(yellow, LOW);
+  Serial.println("Green Light -  Go");
+  delay(5000); // Green for 5 seconds
+
+  // Yellow ON
+  digitalWrite(yellow, HIGH);
+  digitalWrite(green, LOW);
+  Serial.println("Yellow Light - caution");
+  delay(2000); // Yellow for 2 seconds
+
+  // Red ON
+  digitalWrite(red, HIGH);
+  digitalWrite(yellow, LOW);
+  Serial.println("Red Light -  Stop");
+  delay(5000); // Red for 5 seconds
+}
